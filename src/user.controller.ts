@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get,Req } from "@nestjs/common";
+import { Controller, Get,Req,Post } from "@nestjs/common";
 import { of } from "rxjs";
 import {Request} from  'express'
 
@@ -8,15 +8,13 @@ export class UsersController {
     @Get('/profile')
     getProfile(@Req() req: Request){
         console.log(req)
-        // request handler
-        // return new Promise ((resolve,reject)=>{
-        //     resolve({
-        //         name:"Ankit",
-        //         class:"B-Tech CSE",
-        //         status:"online"
-        //     })
-        // })
-
+        return of({
+            hello:"World"
+        })
+    }
+    @Post('/post-profile')
+    postProfile(@Req() req: Request){
+        console.log(req)
         return of({
             hello:"World"
         })
